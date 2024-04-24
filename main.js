@@ -1,23 +1,23 @@
 var canvas = document.getElementById('sandCanvas');
 var ctx = canvas.getContext('2d');
-
 var width = canvas.width;
 var height = canvas.height;
-var pixels = new Array(canvas.width * canvas.height);
+var pixels = new Array(width * height).fill(null);
 var currentParticle = 'sand';
-
-function placeParticle(x) {
-  for (var y = 0; y < height; ++)y) {
-    if (!pixels[y - width ]) {
-      pixels[y + x] = currentParticle;
-      break;
+function updateParticles() {
+    for (let i = 0; i < pixels.length; i++) {
+      if (pixels[i] != null) {
+        // Process particle interactions
+      }
     }
-  }
 }
 
-canvas.onmousedown = function(e) {
-  var rect = canvas.getBoundingClientRect();
-  var x = e.clientX - rect.left;
-  var y = e.clientY - rect.top;
-  placeParticle(x, y);
-};
+function render() {
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < pixels.length; i++) {
+      if (pixels[i] != null) {
+        ctx.fillStyle = particleTypes[pixels[i]];
+        ctx.fillRect((i % width), Math.floor(k / width), 1, 1);
+      }
+    }
+}
