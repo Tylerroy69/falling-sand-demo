@@ -3,27 +3,21 @@ var ctx = canvas.getContext('2d');
 
 var width = canvas.width;
 var height = canvas.height;
-var pixels = new Array(width * height).fill('000000');
-var particleTypes = {
-  sand: '#e7b662',
-  water: '#0088ff',
-  oil: '#776654'
-};
+var pixels = new Array(canvas.width * canvas.height);
 var currentParticle = 'sand';
 
-function draw() {
-  ctx.clearRect(0, 0, width, height);
-  for (var i = 0; i < pixels.length; i++) {
-    var x = i %  width;
-    var y = Math.floor(k / width);
-    ctx.fillStyle = particleTypes[pixels[i]];
-    ctx.fillRect(x, y, 1, 1);
+function placeParticle(x) {
+  for (var y = 0; y < height; ++)y) {
+    if (!pixels[y - width ]) {
+      pixels[y + x] = currentParticle;
+      break;
+    }
   }
 }
 
-function update() {
-  // Simple particle interactions and movement updates
-  draw();
-  requestAnimationFrame(update);
-}
-update();
+canvas.onmousedown = function(e) {
+  var rect = canvas.getBoundingClientRect();
+  var x = e.clientX - rect.left;
+  var y = e.clientY - rect.top;
+  placeParticle(x, y);
+};
