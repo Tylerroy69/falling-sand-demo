@@ -13,10 +13,21 @@ canvas {
   display: block;
   margin: auto;
 }
+nav {
+  background: #222;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
 </style>
 </head>
 <body>
-<div id="particleSelector" style="display: flex; justify-content: center; align-items: center; padding: 10px;"><button onclick="currentParticle = 'sand';">Sand</button><button onclick="currentParticle = 'water';">Water</button><button onclick="currentParticle = 'oil';">Oil</button></div>
+<nav><a href="index.html">Home</a><a href="about.html">About</a><a href="instructions.html">Instructions</a></nav>
 <canvas id="sandCanvas" width="1024" height="512"></canvas>
 <script src="main.js"></script>
 </body>
